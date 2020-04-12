@@ -24,22 +24,23 @@ namespace StoreFrontApp.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public Greeting /*IEnumerable<WeatherForecast>*/ Get()
         {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            //var rng = new Random();
+            //return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            //{
+            //    Date = DateTime.Now.AddDays(index),
+            //    TemperatureC = rng.Next(-20, 55),
+            //    Summary = Summaries[rng.Next(Summaries.Length)]
+            //})
+            //.ToArray();
+
+            var greeting = new Greeting
             {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+                phrase = "Duh"
+            };
 
-            //    var greeting = new Greeting {
-            //        phrase = "Duh"
-            //    };
-
-            //    return greeting;
+            return greeting;
         }
 
 
@@ -52,6 +53,16 @@ namespace StoreFrontApp.Controllers
             };
 
             return greeting;
+        }
+
+        [HttpGet("helloWorld")]
+        public Greeting whatUp()
+        {
+            Greeting string1 = new Greeting
+            {
+                phrase = "Hello World!"
+            };
+            return string1;
         }
     }
 }

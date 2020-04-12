@@ -1,9 +1,17 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
 
-  constructor() { }
+  constructor(private _http: HttpClient) { }
+
+  getString() {
+    return this._http.get("weatherforecast/helloWorld");
+  }
+  getString2() {
+    return this._http.get("weatherforecast");
+  }
 }
