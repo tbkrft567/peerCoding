@@ -53,5 +53,15 @@ namespace StoreFrontApp.Controllers
 
             return greeting;
         }
+        [HttpGet]
+        [Route("/helloWorld")]
+        public Greeting whatUp()
+        {
+            Greeting string1 = new Greeting
+            {
+                phrase = "Hello World!"
+            };
+            return string1;
+        }
     }
 }
