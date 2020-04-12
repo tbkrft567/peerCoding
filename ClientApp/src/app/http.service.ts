@@ -9,6 +9,9 @@ export class HttpService {
   constructor(private _http: HttpClient) { }
 
   getString() {
-    return this._http.get("/WeatherForecast/helloWorld");
+    return this._http.get("weatherforecast/helloWorld");
+  }
+  getString2() {
+    return this._http.get("weatherforecast");
   }
 }

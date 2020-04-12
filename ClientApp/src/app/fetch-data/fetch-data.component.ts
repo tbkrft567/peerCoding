@@ -27,6 +27,7 @@ export class FetchDataComponent {
     private _router: Router,
   ) { }
   Hello() {
+    console.log("here")
     let observable = this._httpService.getString();
     observable.subscribe(data => {
       console.log("Success");
