@@ -14,4 +14,9 @@ export class HttpService {
   getString2() {
     return this._http.get("weatherforecast");
   }
+
+  myNameIs(myGreetings) {
+
+  return this._http.post("weatherforecast/myNameIs", myGreetings)
+  }
 }

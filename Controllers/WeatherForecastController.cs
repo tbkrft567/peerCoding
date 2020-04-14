@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using StoreFrontApp.Model;
 
 namespace StoreFrontApp.Controllers
 {
@@ -55,14 +56,28 @@ namespace StoreFrontApp.Controllers
             return greeting;
         }
 
-        [HttpGet("helloWorld")]
-        public Greeting whatUp()
+        [HttpGet("[action]")]
+        public Greeting helloWorld()
         {
             Greeting string1 = new Greeting
             {
                 phrase = "Hello World!"
             };
             return string1;
+        }        
+        
+        [HttpPost("[action]")]
+        public User myNameIs(User user)
+        {
+            Console.WriteLine("My Name is Zach" + user.name);
+            Console.WriteLine(user.name);
+
+            user.name = "the Best is Zach";
+
+            return user;
+
         }
+
+
     }
 }

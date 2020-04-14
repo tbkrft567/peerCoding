@@ -25,3 +25,9 @@
 <button (click)="Hello()">Hello</button>
 {{ newVaraible | json }}
 {{ myGreeting | json }}
+
+
+<form (submit)="passInfo()" >
+  <input type="text" name="name" [(ngModel)]="myGreetings.name"/>
+  <input type="submit" value="Submit"/>
+</form>
