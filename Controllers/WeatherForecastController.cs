@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using StoreFrontApp.Model;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace StoreFrontApp.Controllers
 {
@@ -12,6 +14,7 @@ namespace StoreFrontApp.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
+        private Context _dbContext;
         private static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
@@ -19,9 +22,10 @@ namespace StoreFrontApp.Controllers
 
         private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, Context context)
         {
             _logger = logger;
+            _dbContext = context;
         }
 
         [HttpGet]
@@ -76,6 +80,12 @@ namespace StoreFrontApp.Controllers
 
             return user;
 
+        }
+
+        [HttpGet(["action"])]
+        public User Getter() 
+        {
+            r
         }
 
 
